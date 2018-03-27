@@ -32,6 +32,7 @@ function animate() {
 
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
+
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
@@ -49,13 +50,12 @@ var mRequest = new XMLHttpRequest();
 // Array holding GalleryImage objects (see below).
 var mImages = [];
 
-// Holds the retrived JSON information
+// Holds the retrieved JSON information
 var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'insert_url_here_to_image_json';
-
+var mUrl = 'images.json';
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
 //@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
@@ -66,23 +66,30 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 	}
 }
 
-$(document).ready( function() {
+$(document).ready( function() 
+{
 	
-	// This initially hides the photos' metadata information
+	// This initially hides the photos' meta data information
 	$('.details').eq(0).hide();
 	
 });
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function() 
+{
 	
 	console.log('window loaded');
 
 }, false);
 
-function GalleryImage() {
+function GalleryImage(location, description, date, img) 
+{
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
+	this.location = "location";
 	//2. description of photo
+	this.description = "description";
 	//3. the date when the photo was taken
+	this.date = "date";
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+	this.img = "img";
 }

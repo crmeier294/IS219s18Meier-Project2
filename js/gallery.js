@@ -49,11 +49,12 @@ function getQueryParams(qs)
 var $_GET = getQueryParams(document.location.search);
 console.log($_GET["fname"]); // would output "John"
 
-function swapPhoto() {
+function swapPhoto() 
+{
 	//Add code here to access the #slideShow element.
-	//Access the img element and replace its source
-	//with a new image from your images array which is loaded 
-	//from the JSON string
+	$('slideShow');
+	/**Access the img element and replace its source with a new image from your images array which is loaded from the JSON string**/
+	$('img').src = mImages[mCurrentIndex];
 	console.log('swap photo');
 }
 

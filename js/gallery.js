@@ -68,6 +68,7 @@ mRequest.onreadystatechange = function()
 			mJson = JSON.parse(mRequest.responseText);
 			// Let’s print out the JSON; It will likely show as "obj"
 			console.log(mJson);
+			console.log(mJson.images[1].date); // “01/02/2016”
 		} 
 		
 		catch(err) 
@@ -76,7 +77,7 @@ mRequest.onreadystatechange = function()
 		}
 	}
 };
-mRequest.open("GET",mURL, true);
+mRequest.open("GET",mUrl, true);
 mRequest.send();
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -103,15 +104,16 @@ window.addEventListener('load', function()
 
 }, false);
 
-function GalleryImage(location, description, date, img) 
+function GalleryImage(imgPath, imgLocation, description, date) 
 {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
-	this.location = "location";
+	this.imgPath = imgPath;
 	//2. description of photo
-	this.description = "description";
+	this.imgLocation = imgLocation;
 	//3. the date when the photo was taken
-	this.date = "date";
+	this.description = description;
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	this.img = "img";
+	this.date = date;
 }
+

@@ -66,6 +66,14 @@ mRequest.onreadystatechange = function()
 		{
 			// Let’s try and see if we can parse JSON
 			mJson = JSON.parse(mRequest.responseText);
+			
+			// LOOP THROUGH the mJSON array here and fill up the
+			// mImages array with GalleryImage objects
+			for( var i = 0; i < mJson.length; i++)
+			{
+				mImages.push(new GalleryImage(mJson));
+			}
+			
 			// Let’s print out the JSON; It will likely show as "obj"
 			console.log(mJson);
 			console.log(mJson.images[1].date); // “01/02/2016”
@@ -116,4 +124,3 @@ function GalleryImage(imgPath, imgLocation, description, date)
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
 	this.date = date;
 }
-

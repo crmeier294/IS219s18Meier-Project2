@@ -1,0 +1,41 @@
+{
+    "images": 
+	[
+        {
+            "imgPath": "img/more_places/aurora.jpg",
+            "imgLocation": "Norway",
+            "description": "Aurora in Norway",
+            "date": "07/15/2016"
+        },
+        {
+            "imgPath": "img/more_places/deathstar.jpg",
+            "imgLocation": "Space",
+            "description": "Deathstar",
+            "date": "02/01/2016"
+        },
+        {
+            "imgPath": "img/more_places/moher.jpg",
+            "imgLocation": "Lislorkan North, Liscannor, Co. Clare, Ireland",
+            "description": "Cliffs of Moher",
+            "date": "04/21/2017"
+        },
+		{
+		  "imgPath": "img/more_places/moonlight.jpg",
+		  "imgLocation": "Space",
+		  "description": "Moonlight",
+		  "date": "06/09/2017"
+		},
+		{
+		  "imgPath": "img/more_places/naboo.jpg",
+		  "imgLocation": "Italy)",
+		  "description": "Naboo",
+		  "date": "06/03/2013"
+		},
+		{
+		  "imgPath": "img/more_places/space_view.jpg",
+		  "imgLocation": "Norway",
+		  "description": "Aurora in Norway",
+		  "date": "08/22/2017"
+		}
+    ]
+}

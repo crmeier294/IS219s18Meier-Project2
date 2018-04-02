@@ -48,27 +48,26 @@ function getQueryParams(qs)
 }
 var $_GET = getQueryParams(document.location.search); 
 
+
+// URL for the JSON to load by default
+// Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
+var mUrl = 'images.json';
+
+
+
 // swap photo function
 function swapPhoto() 
-{; 
-		$("#photo").attr("src", mImages[mCurrentIndex].imgPath); 
-		$(".location").text("Location: " + mImages[mCurrentIndex].imgLocation);
-		$(".description").text("Description: " + mImages[mCurrentIndex].description); 
-		$(".date").text("Date: " + mImages[mCurrentIndex].date); 
-		mCurrentIndex++;
+{; 		
+	$("#photo").attr("src", mImages[mCurrentIndex].imgPath); 
+	$(".location").text("Location: " + mImages[mCurrentIndex].imgLocation);
+	$(".description").text("Description: " + mImages[mCurrentIndex].description); 
+	$(".date").text("Date: " + mImages[mCurrentIndex].date); 
+	mCurrentIndex++;		
 		
-		if (mCurrentIndex >= mImages.length)
-		{
-			mCurrentIndex = 0;
-		}
-		
-		if($('#prevPhoto').click(function()
-		{	
-			$("#photo").attr("src", mImages[mCurrentIndex-1].imgPath); 
-			$(".location").text("Location: " + mImages[mCurrentIndex-1].imgLocation);
-			$(".description").text("Description: " + mImages[mCurrentIndex-1].description); 
-			$(".date").text("Date: " + mImages[mCurrentIndex-1].date); 
-		}))
+	if (mCurrentIndex >= mImages.length)
+	{
+		mCurrentIndex = 0;
+	}
 	
 	console.log('swap photo');
 }
@@ -84,10 +83,6 @@ var mImages = [];
 
 // Holds the retrieved JSON information
 var mJson;
-
-// URL for the JSON to load by default
-// Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'images.json';
 
 mRequest.onreadystatechange = function() 
 {
@@ -142,13 +137,31 @@ $(document).ready( function()
 	$('#nextPhoto').click(function() {
     swapPhoto();})
 	
-	$('#prevPhoto').click(function() {
-    swapPhoto();})
+	$('#prevPhoto').click(function() 
+	{			
+		if(mCurrentIndex == 0)
+		{
+			mCurrentIndex = mImages.length-2;
+		}
+		else if(mCurrentIndex == 1)
+		{
+			mCurrentIndex = mImages.length-1;
+		}
+		else
+		{
+			mCurrentIndex -= 2;			
+		}
+		swapPhoto();
+	})
+	
 	
 	$('.moreIndicator').click(function()
 	{
-		$("#photo").slideToggle();
+		$("img.rot90").toggleClass("rot270", 3000);
+		$('.details').slideToggle(1000);
 	})
+	
+	
 	
 	
 	

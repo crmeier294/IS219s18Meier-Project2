@@ -51,7 +51,11 @@ var $_GET = getQueryParams(document.location.search);
 // swap photo function
 function swapPhoto() 
 {; 
-		
+		$("#photo").attr("src", mImages[mCurrentIndex].imgPath); 
+		$(".location").text("Location: " + mImages[mCurrentIndex].imgLocation);
+		$(".description").text("Description: " + mImages[mCurrentIndex].description); 
+		$(".date").text("Date: " + mImages[mCurrentIndex].date); 
+		mCurrentIndex++;
 	
 	console.log(mImages.length);
 	console.log('swap photo');
@@ -122,6 +126,7 @@ $(document).ready( function()
 	
 	// This initially hides the photos' meta data information
 	$('.details').eq(0).hide();
+	
 	
 });
 

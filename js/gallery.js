@@ -61,8 +61,15 @@ function swapPhoto()
 		{
 			mCurrentIndex = 0;
 		}
+		
+		if($('#prevPhoto').click(function()
+		{	
+			$("#photo").attr("src", mImages[mCurrentIndex-1].imgPath); 
+			$(".location").text("Location: " + mImages[mCurrentIndex-1].imgLocation);
+			$(".description").text("Description: " + mImages[mCurrentIndex-1].description); 
+			$(".date").text("Date: " + mImages[mCurrentIndex-1].date); 
+		}))
 	
-	console.log(mImages.length);
 	console.log('swap photo');
 }
 
@@ -131,6 +138,14 @@ $(document).ready( function()
 	
 	// This initially hides the photos' meta data information
 	$('.details').eq(0).show();
+	
+	$('#nextPhoto').click(function() {
+    swapPhoto();})
+	
+	$('#prevPhoto').click(function() {
+    swapPhoto();})
+	
+	
 	
 });
 

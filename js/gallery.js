@@ -145,6 +145,11 @@ $(document).ready( function()
 	$('#prevPhoto').click(function() {
     swapPhoto();})
 	
+	$('.moreIndicator').click(function()
+	{
+		$("#photo").slideToggle();
+	})
+	
 	
 	
 });

@@ -46,15 +46,14 @@ function getQueryParams(qs)
 	}
 	return params;
 }
-var $_GET = getQueryParams(document.location.search);
-console.log($_GET["fname"]); // would output "John"
+var $_GET = getQueryParams(document.location.search); 
 
+// swap photo function
 function swapPhoto() 
-{
-	//Add code here to access the #slideShow element.
-	$('slideShow');
-	/**Access the img element and replace its source with a new image from your images array which is loaded from the JSON string**/
-	$('img').src = mImages[mCurrentIndex];
+{; 
+		
+	
+	console.log(mImages.length);
 	console.log('swap photo');
 }
 
@@ -86,10 +85,13 @@ mRequest.onreadystatechange = function()
 			
 			// LOOP THROUGH the mJSON array here and fill up the
 			// mImages array with GalleryImage objects
-			for( var i = 0; i < mJson.length; i++)
+			
+			for( var i = 0; i < mJson.images.length; i++)
 			{
-				mImages.push(new GalleryImage(mJson));
+				var j = mJson.images[i];
+				mImages.push(new GalleryImage(j.imgLocation, j.description, j.date, j.imgPath));
 			}
+			console.log(mImages);
 			
 			// Let’s print out the JSON; It will likely show as "obj"
 			console.log(mJson);
@@ -107,7 +109,8 @@ mRequest.send();
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
 //@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
-function makeGalleryImageOnloadCallback(galleryImage) {
+function makeGalleryImageOnloadCallback(galleryImage) 
+{
 	return function(e) {
 		galleryImage.img = e.target;
 		mImages.push(galleryImage);
@@ -129,15 +132,15 @@ window.addEventListener('load', function()
 
 }, false);
 
-function GalleryImage(imgPath, imgLocation, description, date) 
+function GalleryImage(imgLocation, description, date, imgPath) 
 {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
-	this.imgPath = imgPath;
-	//2. description of photo
 	this.imgLocation = imgLocation;
-	//3. the date when the photo was taken
+	//2. description of photo
 	this.description = description;
-	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+	//3. the date when the photo was taken
 	this.date = date;
+	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+	this.imgPath = imgPath;
 }

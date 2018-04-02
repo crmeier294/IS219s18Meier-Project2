@@ -54,6 +54,10 @@ var $_GET = getQueryParams(document.location.search);
 var mUrl = 'images.json';
 
 
+if($_GET["json"] != undefined)
+{
+	mUrl = $_GET["json"];
+}
 
 // swap photo function
 function swapPhoto() 

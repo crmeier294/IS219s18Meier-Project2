@@ -12,6 +12,11 @@ body {
 	margin-right: auto;
 	background-color: white;
 	border-radius: 2px;
+}
+
+#photo{
+	height: 389px;
+	width: 518px;
 }	
 
 #slideShow {	
@@ -33,6 +38,7 @@ body {
 	top: 0px;
 	margin: 0 auto;
 	display:block;
+	float: center;
 	
 }
 
@@ -89,6 +95,7 @@ Make it animate nicely. You'll need CSS3 for this*/
 	-o-transform: rotate(90deg);
 	-ms-transform: rotate(90deg);
 	transform: rotate(90deg);
+	transition-duration: .5s;
 }
 
 /*Add CSS styles to rotate the element 180deg
@@ -111,4 +118,5 @@ Make it animate nicely. You'll need CSS3 for this*/
 	-o-transform: rotate(270deg);
 	-ms-transform: rotate(270deg);
 	transform: rotate(270deg);
+	transition-duration: .5s;
 }

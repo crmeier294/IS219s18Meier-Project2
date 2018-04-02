@@ -56,6 +56,11 @@ function swapPhoto()
 		$(".description").text("Description: " + mImages[mCurrentIndex].description); 
 		$(".date").text("Date: " + mImages[mCurrentIndex].date); 
 		mCurrentIndex++;
+		
+		if (mCurrentIndex >= mImages.length)
+		{
+			mCurrentIndex = 0;
+		}
 	
 	console.log(mImages.length);
 	console.log('swap photo');
@@ -125,8 +130,7 @@ $(document).ready( function()
 {
 	
 	// This initially hides the photos' meta data information
-	$('.details').eq(0).hide();
-	
+	$('.details').eq(0).show();
 	
 });
 
@@ -149,3 +153,4 @@ function GalleryImage(imgLocation, description, date, imgPath)
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
 	this.imgPath = imgPath;
 }
+//$('moreIndicator rot90').rot90;

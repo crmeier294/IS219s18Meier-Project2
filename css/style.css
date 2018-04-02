@@ -27,10 +27,13 @@ body {
 .moreIndicator {
 	height: 50px;
 	width: 50px;
-	position: absolute;
+	position: relative;
 	z-index: 3;
 	opacity: .8;
 	top: 0px;
+	margin: 0 auto;
+	display:block;
+	
 }
 
 .thumbnail {
@@ -57,6 +60,7 @@ body {
 #nextPhoto {
 	height: 42px;
 	width: 42px;
+	float: right;
 }
 
 .details p {
